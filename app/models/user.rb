@@ -10,11 +10,10 @@ class User < ActiveRecord::Base
   has_many :resumes, :dependent => :destroy
 
   def import_profile(profile)
+    # TODO: import name/communication info
   end
 
   def import_profile_fields(profile_fields)
-    # return false
-
     resume = resumes.create( :name => "LinkedIn Imported" )
 
     positions_section = PositionsSection.new( :name => "Work Experience" )
