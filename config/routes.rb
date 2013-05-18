@@ -1,6 +1,7 @@
 CvHackathon::Application.routes.draw do
   devise_for :users
 
+  resources :linked_in_profiles
   resources :resumes
   resources :sections
   resources :parts

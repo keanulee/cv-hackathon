@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518193930) do
+ActiveRecord::Schema.define(:version => 20130518212957) do
+
+  create_table "linked_in_profiles", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "parts", :force => true do |t|
     t.string   "name"
@@ -33,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130518193930) do
     t.integer  "resume_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "type"
   end
 
   create_table "users", :force => true do |t|
@@ -48,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130518193930) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
