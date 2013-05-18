@@ -1,0 +1,11 @@
+development:
+  api_key: xxxxxxxxxxxx
+  secret: xxxxxxxxxxxxxxxx
+
+production:
+  api_key: xxxxxxxxxxxx
+  secret: xxxxxxxxxxxxxxxx
+
+test:
+  api_key: xxxxxxxxxxxx
+  secret: xxxxxxxxxxxxxxxx

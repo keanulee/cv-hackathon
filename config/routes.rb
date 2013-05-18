@@ -1,4 +1,11 @@
 CvHackathon::Application.routes.draw do
+  devise_for :users
+
+  resources :linked_in_profiles
+  resources :resumes
+  resources :sections
+  resources :parts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
