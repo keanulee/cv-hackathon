@@ -9,11 +9,27 @@
 
 <% @resumes.each do |resume| %>
   <tr>
+    <div>
+      </br><h1><%= resume.name %></h1>
+      <% resume.sections.each do |section| %>
+        <h2><%= section.name %></h2>
+        <% section.parts.each do |part| %>
+          <h3><%= part.name %></h3>
+          <p><%= part.details[:location] %></p>
+        <% end %>
+        <strong>Add new part</strong><br />
+      <% end %>
+      <strong>Add new section</strong>
+    </div>
+
+    <%= link_to 'Edit', edit_resume_path(resume) %> 
+
     <td><%= link_to 'Show', resume %></td>
     <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
     <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+<strong>Add new resume</strong>
 </table>
 
 <br />
