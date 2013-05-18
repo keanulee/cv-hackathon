@@ -6,10 +6,10 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'pg'
 
 gem "twitter-bootstrap-rails", "~> 2.2.1"
 gem 'linkedin'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +21,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :production do
+	gem 'pg'
 end
 
 gem 'jquery-rails'
