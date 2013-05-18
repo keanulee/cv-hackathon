@@ -4,13 +4,19 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.where( :user_id => current_user.id )
+    @resumes = Resume.all( :conditions => { :user_id => current_user.id }, :include => { :sections => :parts } )
+    #puts YAML::dump(@jsonresumes)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @resumes }
+      format.json { render json: @resumes.as_json( :include => { :sections => {
+                                                              :include => :parts
+                                                            }
+                                                          } ) }
     end
   end
+
+
 
   # GET /resumes/1
   # GET /resumes/1.json
@@ -21,9 +27,10 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @resume }
+      format.json format.json { render json: @resume }
     end
   end
+
 
   # GET /resumes/new
   # GET /resumes/new.json

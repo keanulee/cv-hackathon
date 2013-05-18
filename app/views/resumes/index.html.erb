@@ -1,5 +1,9 @@
 <h1>Listing resumes</h1>
 
+
+<ul id="resumes-list">
+</ul>
+
 <table>
   <tr>
     <th>Name</th>
@@ -8,30 +12,27 @@
     <th></th>
   </tr>
 
-<% @resumes.each do |resume| %>
-  <tr>
-    <div>
-      </br><h1><%= resume.name %></h1>
-      <% resume.sections.each do |section| %>
-        <h2><%= section.name %></h2>
-        <% section.parts.each do |part| %>
-          <h3><%= part.name %></h3>
-          <p><%= part.details[:location] %></p>
-        <% end %>
-        <strong>Add new part</strong><br />
-      <% end %>
-      <strong>Add new section</strong>
-    </div>
 
-    <%= link_to 'Edit', edit_resume_path(resume) %> 
+<script id="resume-template" type="text/x-handlebars-template">
+<li class="resume">
+<h1>{{ name }}</h1>
+  <ul id="sections-list-{{ id }}">
+  </ul>
+</li>
+</script>
+<script id="section-template" type="text/x-handlebars-template">
+<li class="section">
+<h3>{{ name }}</h3>
+  <ul id="parts-list-{{ id }}">
+  </ul>
+</li>
+</script>
+<script id="part-template" type="text/x-handlebars-template">
+<li class="part">
+<h5>{{ name }}</h5>
 
-    <td><%= link_to 'Show', resume %></td>
-    <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
-    <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-<strong>Add new resume</strong>
-</table>
+</li>
+</script>
 
 <br />
 
