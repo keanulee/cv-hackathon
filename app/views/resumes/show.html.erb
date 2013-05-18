@@ -11,15 +11,5 @@
   <% end %>
 </div>
 
-<%= form_for(@section) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
 <%= link_to 'Edit', edit_resume_path(@resume) %> |
 <%= link_to 'Back', resumes_path %>

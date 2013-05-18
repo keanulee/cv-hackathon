@@ -9,5 +9,24 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :resumes, :dependent => :destroy
 
-  attr_accessible :first_name, :headline, :last_name, :linked_in_id, :location
+  def import_profile(profile)
+  end
+
+  def import_profile_fields(profile_fields)
+    # return false
+
+    resume = resumes.create( :name => "LinkedIn Imported" )
+
+    positions_section = PositionsSection.new( :name => "Work Experience" )
+    positions_section.resume = resume
+    positions_section.save
+
+    positions_section.add_positions profile_fields.positions.all
+
+    educations_section = EducationsSection.new( :name => "Education" )
+    educations_section.resume = resume
+    educations_section.save
+
+    educations_section.add_educations profile_fields.educations.all
+  end
 end

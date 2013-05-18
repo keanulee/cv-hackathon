@@ -8,10 +8,10 @@ class RemoveColumnsFromUsers < ActiveRecord::Migration
   end
 
   def down
-    add_column :users, :linked_in_id
-    add_column :users, :first_name
-    add_column :users, :last_name
-    add_column :users, :headline
-    add_column :users, :location
+    add_column :users, :linked_in_id, :string
+    add_column :users, :first_name, :string
+    add_column :users, :last_name, :string
+    add_column :users, :headline, :string
+    add_column :users, :location, :string
   end
 end
