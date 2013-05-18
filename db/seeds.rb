@@ -6,26 +6,68 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u = User.create(
-  :first_name     => "Keanu",
-  :headline       => "Student",
-  :last_name      => "Lee",
-  :linked_in_id   => "abcd1234",
-  :location       => "Waterloo"
-)
+u = User.first
 
-r = u.resumes.create(
-  :name => "Master"
-)
+if u
+  r = u.resumes.create(
+    :name => "Master"
+  )
 
-s = r.sections.create(
-  :name => "Education"
-)
+  s = r.sections.create(
+    :name => "Education"
+  )
 
-p = s.parts.create(
-  :name     => "Computer Science",
-  :details  => {
-    :location => "University of Waterloo"
-  }
-)
+  r1 = u.resumes.create(
+    :name => "Dev"
+  )
 
+  r2 = u.resumes.create(
+    :name => "Design"
+  )
+
+  s1 = r1.sections.create(
+    :name => "Projects"
+  )
+
+  s2 = r1.sections.create(
+    :name => "Work Experience"
+  )
+
+  s3 = r2.sections.create(
+    :name => "Work Experience"
+  )
+
+  p = s.parts.create(
+    :name => "Computer Science",
+    :details => {
+      :location => "University of Waterloo"
+    }
+  )
+
+  p2 = s.parts.create(
+    :name => "Business Administration",
+    :details => {
+      :location => "Wilfrid Laurier University"
+    }
+  )
+
+  p1 = s1.parts.create(
+    :name => "FounderFinder",
+    :details => {
+      :location => "Hackathon"
+      }
+  )
+
+  p3 = s2.parts.create(
+    :name => "Computer Science",
+    :details => {
+      :location => "University of Waterloo"
+    }
+  )
+  p4 = s1.parts.create(
+    :name => "Computer Science",
+    :details => {
+      :location => "University of Waterloo"
+    }
+  )
+end

@@ -1,8 +1,10 @@
 class ResumesController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.all
+    @resumes = Resume.where( :user_id => current_user.id )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +16,8 @@ class ResumesController < ApplicationController
   # GET /resumes/1.json
   def show
     @resume = Resume.find(params[:id])
+    @section = Section.new
+    @section.resume = @resume
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,7 +44,7 @@ class ResumesController < ApplicationController
   # POST /resumes
   # POST /resumes.json
   def create
-    @resume = Resume.new(params[:resume])
+    @resume = current_user.resumes.new(params[:resume])
 
     respond_to do |format|
       if @resume.save
