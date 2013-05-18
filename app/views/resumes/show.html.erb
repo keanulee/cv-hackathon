@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <%= @resume.name %>
+  <% @resume.sections.each do |section| %>
+    <h2><%= section.name %></h2>
+    <% section.parts.each do |part| %>
+      <h3><%= part.name %></h3>
+      <p><%= part.details[:location] %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_resume_path(@resume) %> |
+<%= link_to 'Back', resumes_path %>

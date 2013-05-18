@@ -5,3 +5,27 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+u = User.create(
+  :first_name     => "Keanu",
+  :headline       => "Student",
+  :last_name      => "Lee",
+  :linked_in_id   => "abcd1234",
+  :location       => "Waterloo"
+)
+
+r = u.resumes.create(
+  :name => "Master"
+)
+
+s = r.sections.create(
+  :name => "Education"
+)
+
+p = s.parts.create(
+  :name     => "Computer Science",
+  :details  => {
+    :location => "University of Waterloo"
+  }
+)
+
