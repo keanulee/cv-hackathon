@@ -27,7 +27,7 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json format.json { render json: @resume }
+      format.json { render json: @resume }
     end
   end
 
