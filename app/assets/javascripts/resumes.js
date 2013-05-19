@@ -84,7 +84,65 @@ $(document).ready(function() {
       $("#export_btn").click(function() {
         var id = $(this).data("resume_id");
         $.get("/resumes/"+id+".json", function(data) {
-          console.log(data)
+
+          var doc = new jsPDF();
+          console.log(data);
+
+          // Header- Name
+          doc.setFont("helvetica");
+          doc.setFontType("bold");
+          doc.setFontSize(30);
+          doc.text(70, 20, data.contact_info.first_name + " " + data.contact_info.last_name);
+
+          // Header- Phone, Email, Location
+          doc.setFontType("italic");
+          doc.setFontSize(14);
+          doc.text(55, 26, data.contact_info.email + " | " + "Toronto, Ontario, Canada");
+          // -- HEADER FINISHED
+
+          var i,j;
+          var height=40;
+          for (i = 0; i < data.resume.sections.length; ++i) 
+          {          
+
+            // SECTION TITLE
+            doc.setFontType("bold");
+            doc.setFontSize(20);
+            doc.text(20, height, data.resume.sections[i].name);
+            height=height+15;
+
+            for (j = 0; j < data.resume.sections[i].parts.length; ++j) 
+            { 
+              // PART TITLE
+              doc.setFontType("italic");
+              doc.setFontSize(18);
+              doc.text(20, height, data.resume.sections[i].parts[j].name);
+              height=height+7.5;
+
+              // PART SUBTITLE
+              doc.setFontType("bold");
+              doc.setFontSize(16);
+              doc.text(20, height, data.resume.sections[i].parts[j].location);
+              height=height+5;
+
+              // PART START & END DATE
+              doc.setFontSize(13);
+              doc.setFontType("italic");
+              doc.text(20, height, data.resume.sections[i].parts[j].start_date + " - " + data.resume.sections[i].parts[j].end_date);
+              height=height+7.5;
+
+
+              // Part DESCRIPTION
+              doc.setFontSize(11);
+              doc.setFontType("normal");
+              doc.text(20, height, data.resume.sections[i].parts[j].notes)
+              height=height+30;
+              // -- PART FINISHED
+              // -- SECTION FINISHED
+            }
+          }
+          doc.save(data.resume.name +'.pdf');
+
         });
       })
 

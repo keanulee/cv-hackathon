@@ -26,7 +26,7 @@ class ResumesController < ApplicationController
       format.html { redirect_to :action => :index }
       format.json { render json: {
         resume: @resume.as_json( :include => { :sections => { :include => :parts } } ),
-        contact_info: current_user.contact_info.to_json
+        contact_info: current_user.contact_info
       } }
     end
   end
