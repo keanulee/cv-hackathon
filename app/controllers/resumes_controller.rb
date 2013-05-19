@@ -22,10 +22,7 @@ class ResumesController < ApplicationController
   # GET /resumes/1
   # GET /resumes/1.json
   def show
-    #@resume = Resume.find(params[:id])
     @resume = Resume.includes(:sections => :parts).find(params[:id])
-    #@section = Section.new
-    #@section.resume = @resume
 
     respond_to do |format|
       format.html # show.html.erb

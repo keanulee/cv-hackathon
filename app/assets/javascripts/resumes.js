@@ -39,7 +39,6 @@ $(document).ready(function() {
           $("#sections-list-" + data[i].id).append(html);
           
           $( "#sections-list-" + data[i].id ).sortable();
-          //$( "#sections-list-" + data[i].id ).disableSelection();
 
           $('#part-create-' + section.id).editable({
             url: '/parts/',
@@ -67,12 +66,22 @@ $(document).ready(function() {
             var html = template(context);
             $("#parts-list-" + section.id).append(html);
             $( "#parts-list-" + section.id ).sortable();
-            //$( "#parts-list-" + section.id ).disableSelection();
           }
         }
       }
 
       $(".editable").editable();
+
+      $(".resume-link").click(function() {
+        var data = $(this).attr('data');
+        $(".resume").hide();
+        $(".resume-"+ data ).show();
+
+        $(".resume-link").attr("style","");
+        $(this).attr("style","color:#e78d0e");
+      });
+
+      $(".resume-link:first").click();
 
       $(".delete-resume").click(function() {
         if (window.confirm("Are you sure?")) {
@@ -81,7 +90,7 @@ $(document).ready(function() {
             url: '/resumes/' + $(this).attr('data'),
             type: 'DELETE',
             success: function() {
-              $("#resume-"+ data ).fadeOut();
+              $(".resume-"+ data ).fadeOut();
             }
           });
         }
@@ -112,6 +121,10 @@ $(document).ready(function() {
           });
         }
       });
+
+        $(".pinned").pin({
+            containerSelector: ".resumes"
+        });
     });
   });
 });
