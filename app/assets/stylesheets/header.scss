@@ -1,0 +1,65 @@
+/*
+Filename: header.css;
+Description: The header css for the pinpointcv.com design;
+ */
+
+	$pcv_blue: #1ba0d8;
+	$pcv_orange: #e78d0e;
+
+.masthead {
+
+	background-color: #fff;
+	border-bottom: 1px solid #fefefe;
+
+	h1 {
+		display: inline-block;
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	.nav {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 2.4em 0 0;
+
+		li {
+			padding: 0 0.5em;
+
+			&.sep {
+				border-right: 1px solid #ccc;
+			}
+		}
+
+		a {
+			font-size: 1.3em;
+		}
+
+		a:active,
+		a:link,
+		a:visited {
+			background-color: transparent;
+			color: $pcv_blue;
+		}
+
+		a:hover,
+		a:focus,
+		li.active a {
+			color: $pcv_orange;
+			// border-bottom: 1px solid $pcv_orange;
+		}
+
+		a:hover,
+		a:focus {
+			line-height: 1.5em;
+			padding-bottom: 0.2em;
+
+		}
+
+	}
+}
+
+.nav-pills > li > a {
+		-webkit-border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		border-radius: 0 !important;
+	}
