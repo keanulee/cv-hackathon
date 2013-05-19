@@ -3,5 +3,5 @@ class Part < ActiveRecord::Base
 
   serialize :details
   
-  attr_accessible :details, :name
+  attr_accessible :details, :name, :location, :start_date, :end_date, :notes
 end
