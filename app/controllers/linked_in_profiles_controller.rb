@@ -7,7 +7,7 @@ class LinkedInProfilesController < ApplicationController
   # GET /linked_in_profiles.json
   def index
     # get your api keys at https://www.linkedin.com/secure/developer
-    client = LinkedIn::Client.new(LINKEDIN_CONFIG["api_key"], LINKEDIN_CONFIG["secret"])
+    client = LinkedIn::Client.new(ENV['LINKEDIN_API_KEY'], ENV['LINKEDIN_SECRET'])
     request_token = client.request_token :oauth_callback => url_for(:action => :new)
     session[:rtoken] = request_token.token
     session[:rsecret] = request_token.secret
@@ -19,7 +19,7 @@ class LinkedInProfilesController < ApplicationController
   # GET /linked_in_profiles/new
   # GET /linked_in_profiles/new.json
   def new
-    client = LinkedIn::Client.new(LINKEDIN_CONFIG["api_key"], LINKEDIN_CONFIG["secret"])
+    client = LinkedIn::Client.new(ENV['LINKEDIN_API_KEY'], ENV['LINKEDIN_SECRET'])
     if session[:atoken].nil?
       pin = params[:oauth_verifier]
       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
