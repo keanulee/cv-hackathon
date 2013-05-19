@@ -1,53 +1,199 @@
-<h1>Listing resumes</h1>
+ <div id="main_content">
+      <div class="container">
 
-<ul id="resumes-list">
-</ul>
+        <div class="span12 main-page">          
+          
+          <div class="span8 resume-details">
+              <div class="accordion" id="accordion1">
 
-<script id="resume-template" type="text/x-handlebars-template">
-  <li id="resume-{{ id }}" class="resume">
-    <h1>
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/resumes/{{ id }}">{{ name }}</a>
-    </h1>
-    <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
-    <button class="btn btn-danger delete-resume" data="{{ id }}">Delete</button>
-    <ul id="sections-list-{{ id }}">
-    </ul>
-    <a href="#" id="section-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Section</a> 
-  </li>
-</script>
-<script id="section-template" type="text/x-handlebars-template">
-  <li id="section-{{ id }}" class="section">
-    
-    <h3>
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/sections/{{ id }}">{{ name }}</a>
-    </h3>
-    <button class="btn btn-danger delete-section" data="{{ id }}">Delete</button></h3>
-    <ul id="parts-list-{{ id }}">
-    </ul>
-    <a href="#" id="part-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Part</a>
+                <!-- I think this is where the shit goes -->
+                <div class="personal-info">
+                  
+                  <div class="first-name">
+                    fuck off
+                  </div>
 
-  </li>
-</script>
-<script id="part-template" type="text/x-handlebars-template">
-  <li id="part-{{ id }}" class="part">
-    <h5>
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/parts/{{ id }}">{{ name }}</a>
-      <button class="btn btn-danger delete-part" data="{{ id }}">Delete</button>
-    </h5>
-    <p>
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="location" data-url="/parts/{{ id }}">{{ location }}</a>
-    </p>
-    <p>
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="start_date" data-url="/parts/{{ id }}">{{ start_date }}</a> -
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="end_date" data-url="/parts/{{ id }}">{{ end_date }}</a>
-    </p>
-    <p>
-      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="notes" data-url="/parts/{{ id }}">{{ notes }}</a>
-    </p>
-  </li>
-</script>
+                  <div class="last-name">
+                    name
+                  </div>
 
-<br />
+                  <div class="email">jonathan@hi.com</div>
 
-<%= link_to 'New Resume', new_resume_path, class: "btn btn-primary" %>
-<%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse" %>
+                </div>
+                
+                <div class="accordion-group section-area" id="resumes-list">
+                </div>
+
+            </div>
+          </div>
+
+          <!-- <ul id="resumes-list">
+          </ul> -->
+
+          <script id="resume-template" type="text/x-handlebars-template">
+            <li id="resume-{{ id }}" class="resume">
+              <h1>
+                <a href="#" class="editable section" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/resumes/{{ id }}">{{ name }}</a>
+              </h1>
+              <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
+              <button class="btn btn-danger delete-resume" data="{{ id }}">Delete</button>
+              <ul id="sections-list-{{ id }}">
+              </ul>
+              <a class="create-section-area" href="#" id="section-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Section</a> 
+            </li>
+          </script>
+
+
+          <script id="section-template" type="text/x-handlebars-template">
+            <li id="section-{{ id }}" class="section">
+            
+
+              <div class="accordion-heading section-header">
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse-{{ id }}" class=" accordion-toggle" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/sections/{{ id }}">{{ name }}</a>
+              </div>
+
+
+              <div id="collapse-{{ id }}" class="accordion-body collapse out ">
+                <div class="section-functionality">
+                  <h4><a href="#" class="editable accordion-toggle" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/sections/{{ id }}">{{ name }}</a></h4>
+
+                  <a href="#" class="pull-right last" title="">
+                    <span class="livicon delete-section" data="{{ id }}" data-n="trash" data-s="32" data-c="#E74C3C" data-hc="#C0392B"data-et="click"></span>
+                  </a>
+
+                  <!-- <a href="#" class="pull-right" title="">
+                    <span class="livicon" data-n="edit" data-s="32" data-c="#F1C40F" data-hc="#F39C12" data-et="click"></span>
+                  </a> -->
+
+                  <a href="#"  class="pull-right" title="">
+                    <span id="part-create-{{ id }}" data-type="text" data-pk="{{ id }}" class="livicon" data-n="plus" data-s="32" data-c="#2ECC71" data-hc="#27AE60" data-et="click"></span>
+                  </a>
+
+                </div>
+                <div class="accordion-inner section-info-container">
+                  <div class="accordion" id="parts-list-{{ id }}">
+                 </div>
+                </div>
+              </div>
+
+              
+              <ul id="parts-list-{{ id }}">
+              </ul>
+              <!-- <a href="#" id="part-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Par</a>-->
+
+            </li>
+          </script>
+
+          <script id="part-template" type="text/x-handlebars-template">
+            
+              <div class="section-info">
+                <div class="accordion-group info-area">
+
+                  <div class="accordion-heading info-header">
+                    
+                      <a href="#collapse-part-{{ id }}" data-toggle="collapse"  data-parent="#parts-list-{{ section_id }}" class="accordion-toggle" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/parts/{{ id }}">Edit: {{ name }}</a>
+                  </div>
+
+                  <div id="collapse-part-{{ id }}" class="accordion-body collapse out info">
+                    <div class="info-functionality">
+                      <h4><span class="editable data" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/parts/{{ id }}">{{ name }}</span></h4>
+
+                      <a href="" class="pull-right last" title="">
+                        <span class="livicon delete-part" data="{{ id }}" data-n="trash" data-s="32" data-c="#E74C3C" data-hc="#C0392B" data-et="click"></span>
+                      </a>
+
+                    </div> <!-- end info-functionality -->
+
+                    <div class="accordion-inner info-inner">
+                      <ul>
+                        <li><span class="field">Location: </span><span class="editable data" data-type="text" data-pk="{{ id }}" data-name="location" data-url="/parts/{{ id }}">{{ location }}</span></li>
+                        <li><span class="field">Start Date: </span><span class="editable data" data-type="text" data-pk="{{ id }}" data-name="start_date" data-url="/parts/{{ id }}">{{start_date}}</span></li>
+                        <li><span class="field">End Date: </span><span class="editable data" data-type="text" data-pk="{{ id }}" data-name="end_date" data-url="/parts/{{ id }}">{{ end_date }}</span></li>
+                        <li><span class="field">Description: </span><span class="editable data" data-type="text" data-pk="{{ id }}" data-name="notes" data-url="/parts/{{ id }}">{{ notes }}</span></li>
+                      </ul>
+                    </div>
+
+                  </div> <!-- end .info -->
+
+                </div> <!-- end info-area -->
+              </div> <!-- end .section-info -->
+
+            <!--<li id="part-{{ id }}" class="part">
+              <h5>
+                <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/parts/{{ id }}">{{ name }}</a>
+                <button class="btn btn-danger delete-part" data="{{ id }}">Delete</button>
+              </h5>
+              <p>
+                <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="location" data-url="/parts/{{ id }}">{{ location }}</a>
+              </p>
+              <p>
+                <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="start_date" data-url="/parts/{{ id }}">{{ start_date }}</a> -
+                <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="end_date" data-url="/parts/{{ id }}">{{ end_date }}</a>
+              </p>
+              <p>
+                <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="notes" data-url="/parts/{{ id }}">{{ notes }}</a>
+              </p>
+            </li>-->
+
+          </script>
+
+          <br />
+
+          <%= link_to 'New Resume', new_resume_path, class: "btn btn-success" %>
+          <%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse" %>
+
+
+          <div class="span4 resumes">
+
+            <div class="box pinned">
+              <div class="upper">
+                <h3>Resumes</h3>
+
+                <a href="" class="add-RESUME pull-right" title="">
+                  <span class="livicon ui-button" data-n="plus" data-s="32" data-c="#2ECC71" data-hc="#27AE60" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
+                </a>
+              </div> <!-- end .upper -->
+
+              <div class="versions">
+                <ul>
+                  <li>
+                    <a href="" class="" title="">Resume Version #1</a>
+
+                    <a href="" class="delete-RESUME delete-resume pull-right" title="">
+                      <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
+                    </a>
+                  </li>
+
+                  <li class="last">
+                    <a href="" class="" title="">Resume Version #2</a>
+
+                    <a href="" class="delete-RESUME pull-right" title="">
+                      <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="export">
+                <a href="" title="" class="btn btn-large btn-block btn-danger">
+
+                  <i class="livicon ui-button" data-n="external-link" data-s="18" data-c="#FFF" data-et="hover"></i>
+
+                  <span>Export CV to PDF</span>
+
+                </a>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+
+      </div> <!-- /container -->
+    </div> <!-- /main_content -->
+
+    <div id="footer">
+      <div class="container">
+        <p>©pinpointCV Company 2013</p>
+      </div>
+    </div>
