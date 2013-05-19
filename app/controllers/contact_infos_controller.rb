@@ -56,15 +56,26 @@ class ContactInfosController < ApplicationController
   # PUT /contact_infos/1
   # PUT /contact_infos/1.json
   def update
-    @contact_info = ContactInfo.find(params[:id])
-
-    respond_to do |format|
-      if @contact_info.update_attributes(params[:contact_info])
-        format.html { redirect_to @contact_info, notice: 'Contact info was successfully updated.' }
-        format.json { head :no_content }
+    if params[:pk]
+      @contact_info = ContactInfo.find(params[:pk])
+      @contact_info.update_attributes( params[:name] => params[:value] )
+      
+      if @contact_info.save
+        render json: { :results => true }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @contact_info.errors, status: :unprocessable_entity }
+        render json: { :results => false }
+      end
+    else
+      @contact_info = ContactInfo.find(params[:id])
+
+      respond_to do |format|
+        if @contact_info.update_attributes(params[:contact_info])
+          format.html { redirect_to @contact_info, notice: 'Contact info was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @contact_info.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
