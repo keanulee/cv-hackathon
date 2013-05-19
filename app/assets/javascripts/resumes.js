@@ -73,12 +73,20 @@ $(document).ready(function() {
         var data = $(this).attr('data');
         $(".resume").hide();
         $(".resume-"+ data ).show();
+        $("#export_btn").data("resume_id",data)
 
         $(".resume-link").attr("style","");
         $(this).attr("style","color:#e78d0e");
       });
 
       $(".resume-link:first").click();
+
+      $("#export_btn").click(function() {
+        var id = $(this).data("resume_id");
+        $.get("/resumes/"+id+".json", function(data) {
+          console.log(data)
+        });
+      })
 
       $(".delete-resume").click(function() {
         if (window.confirm("Are you sure?")) {

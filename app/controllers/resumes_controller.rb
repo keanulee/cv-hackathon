@@ -10,10 +10,8 @@ class ResumesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @resumes.as_json( :include => { :sections => {
-                                                              :include => :parts
-                                                            }
-                                                          } ) }
+      format.json { render json: @resumes.as_json(
+        :include => { :sections => { :include => :parts } } ) }
     end
   end
 
@@ -22,7 +20,15 @@ class ResumesController < ApplicationController
   # GET /resumes/1
   # GET /resumes/1.json
   def show
-    redirect_to resumes_url
+    @resume = Resume.find(params[:id])
+
+    respond_to do |format|
+      format.html { redirect_to :action => :index }
+      format.json { render json: {
+        resume: @resume.as_json( :include => { :sections => { :include => :parts } } ),
+        contact_info: current_user.contact_info.to_json
+      } }
+    end
   end
 
 
