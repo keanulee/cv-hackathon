@@ -1,0 +1,34 @@
+/* Landing Page */
+
+/* Variables */
+$pcv_blue: #1ba0d8;
+$pcv_orange: #e78d0e;
+
+.landing-page {
+	background-color: #fff;
+	margin: 5em auto;
+	text-align: center;
+	padding: 2em 0;
+
+	h1 {
+		&.creating {
+			height: 96px;
+		}
+		i {
+			height: 64px;
+		}
+	}
+}
+
+.masthead {
+	h1 {
+		display: block;
+		margin: 1em auto 0;
+
+		img {
+
+		display: block;
+		margin: 0 auto;
+		}
+	}
+}

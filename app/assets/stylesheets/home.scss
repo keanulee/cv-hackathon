@@ -1,0 +1,136 @@
+/*
+Filename: home.css;
+Description: The homepage css for the pinpointcv.com design;
+ */
+
+
+	$pcv_blue: #1ba0d8;
+	$pcv_orange: #e78d0e;
+
+#main_content {
+	background-color: $pcv_blue;
+}
+
+.jumbotron {
+	margin: 4em 2em 3em 0;
+	text-align: center;
+	background-color: #fff;
+	width: 50em;
+	display: inline-block;
+	vertical-align: top;
+	padding: 2em 1em 4em 1em;
+	min-height: 22.5em;
+	
+
+	h1 {
+		font-size: 2.5em;
+		height: 64px;
+
+		i {
+			height: 64px !important;
+			margin: 0 1em;
+		}
+
+		&.text {
+			margin-top: 1em;
+		}
+
+		.open {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+	.lead {
+		margin: 1em auto;
+	}
+
+
+	.btn {
+		font-size: 21px;
+		padding: 14px 24px;
+	}
+}
+
+.register {
+	margin: 4em 0 3em;
+	text-align: center;
+	background-color: #F9FADC;
+	width: 27em;
+	display: inline-block;
+	vertical-align: top;
+	padding: 2em 1em 4em 1em;
+
+
+	.intro {
+		font-size: 2.4em;
+	}
+	.convince {
+		font-size: 1.5em;
+	}
+
+	.register-form {
+		.control-group {
+			margin: 1.5em auto 0.5em;
+			border: 1px solid #dedede;
+			border-radius: 4px;
+			width: 20em;
+			background-color: #fff;
+
+			label {
+				display: inline-block;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
+			input {
+				border: none;
+				display: inline-block;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
+		}
+
+		.btn {
+			margin: 1.5em auto 0.5em;
+			width: 10em;
+		}
+	}
+}
+
+
+/* Supporting marketing content */
+.marketing {
+	margin: 4em 0 5em;
+
+	.intro {
+		background-color: #fff;
+		text-align: center;
+		padding: 1em 0 2em;
+		margin: 0 auto 3em;
+	}
+
+	.span3 {
+		text-align: center;
+		background-color: #fff;
+		padding: 2em 2em;
+		margin-left: 6.7em;
+		border-bottom: 5px solid #dedede;
+	}
+
+	.span3.first {
+		margin-left: 0;
+	}
+
+	p + h3 {
+		margin-top: 28px;
+	}
+
+	h3 {
+		color: $pcv_orange;
+		.icon {
+			display: block;
+			height: 2em !important;
+			margin: 1em auto;
+		}
+	}
+}

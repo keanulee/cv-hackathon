@@ -1,0 +1,38 @@
+/*
+Filename: register.css;
+Description: The homepage css for the pinpointcv.com design;
+ */
+
+	.register-form-page {
+		margin: 5em auto;
+		background-color: #F9FADC;
+		width: 30em;
+		display: block;
+		padding: 2em 2.5em 4em;
+
+		.control-group {
+			margin: 1.5em auto 1em;
+			border: 1px solid #dedede;
+			border-radius: 4px;
+			width: 27em;
+			background-color: #fff;
+			padding-left: 1em;
+
+			label {
+				display: inline-block;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
+			input {
+				border: none;
+				display: inline-block;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
+		}
+
+		.btn {
+			margin: 1.5em auto 0.5em;
+			width: 10em;
+		}
+	}

@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.slider
+//= require raphael-min
 //= require_tree .

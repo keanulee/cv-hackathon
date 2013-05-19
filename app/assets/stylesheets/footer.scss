@@ -1,0 +1,23 @@
+/*
+Filename: footer.css;
+Description: The header css for the pinpointcv.com design;
+ */
+
+	$pcv_blue: #1ba0d8;
+	$pcv_orange: #e78d0e;
+
+#footer {
+	background-color: #fff;
+
+	// &.forms {
+	// 	position: absolute;
+	// 	bottom: 0;
+	// 	min-height: 5em;
+	// 	width: 100%;
+	// 	margin: 0 auto;
+	// }
+
+	p {
+		margin: 2em 0;
+	}
+}
