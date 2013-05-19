@@ -8,7 +8,7 @@
     <h1>
       <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/resumes/{{ id }}">{{ name }}</a>
     </h1>
-    <a href="/resumes/{{ id }}/copy" class="btn">Duplicate</a>
+    <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
     <button class="btn btn-danger delete-resume" data="{{ id }}">Delete</button>
     <ul id="sections-list-{{ id }}">
     </ul>
@@ -49,5 +49,5 @@
 
 <br />
 
-<%= link_to 'New Resume', new_resume_path %> |
-<%= link_to 'Import from LinkedIn', linked_in_profiles_path %>
+<%= link_to 'New Resume', new_resume_path, class: "btn btn-primary" %>
+<%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse" %>
