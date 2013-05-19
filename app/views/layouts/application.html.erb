@@ -8,10 +8,27 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="masthead">
+  <div class="container">
+    <h1>
+      <%= image_tag "logo-full.png", :class => "logo-full", :alt => "pinpointCV - description here" %>
+    </h1>
 
-<div>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <ul class="nav nav-pills pull-right">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
+
+<div id="main_content">
+  <div class="container">
+    <%= yield %>
+  </div> <!-- /container -->
+</div> <!-- /main_content -->
+
 </body>
 </html>
