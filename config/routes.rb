@@ -1,4 +1,7 @@
 CvHackathon::Application.routes.draw do
+  resources :contact_infos
+
+
   devise_for :users
 
   resources :linked_in_profiles
