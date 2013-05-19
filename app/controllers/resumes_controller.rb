@@ -22,7 +22,15 @@ class ResumesController < ApplicationController
   # GET /resumes/1
   # GET /resumes/1.json
   def show
-    redirect_to resumes_url
+    @resume = Resume.includes(:sections => :parts).find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @resume.as_json( :include => { :sections => {
+                                                             :include => :parts                 
+                                                             }
+                                                           } ) }
+    end
   end
 
 
