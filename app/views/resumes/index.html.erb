@@ -22,12 +22,11 @@
           </ul> -->
 
           <script id="resume-template" type="text/x-handlebars-template">
-            <li id="resume-{{ id }}" class="resume">
+            <li class="resume-{{ id }} resume">
               <h1>
                 <a href="#" class="editable section" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/resumes/{{ id }}">{{ name }}</a>
               </h1>
               <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
-              <button class="btn btn-danger delete-resume" data="{{ id }}">Delete</button>
               <ul id="sections-list-{{ id }}">
               </ul>
               <a class="create-section-area" href="#" id="section-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Section</a> 
@@ -130,9 +129,7 @@
 
           <br />
 
-          <%= link_to 'New Resume', new_resume_path, class: "btn btn-success" %>
           <%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse" %>
-
 
           <div class="span4 resumes">
 
@@ -140,28 +137,22 @@
               <div class="upper">
                 <h3>Resumes</h3>
 
-                <a href="" class="add-RESUME pull-right" title="">
+                <a href="<%= new_resume_path %>" class="add-RESUME pull-right" title="">
                   <span class="livicon ui-button" data-n="plus" data-s="32" data-c="#2ECC71" data-hc="#27AE60" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
                 </a>
               </div> <!-- end .upper -->
 
               <div class="versions">
                 <ul>
-                  <li>
-                    <a href="" class="" title="">Resume Version #1</a>
+                  <% @resumes.each do |resume| %>
+                    <li class="resume-<%= resume.id %>">
+                      <a href="#" class="resume-link" data="<%= resume.id %>" title=""><%= resume.name %></a>
 
-                    <a href="" class="delete-RESUME delete-resume pull-right" title="">
-                      <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
-                    </a>
-                  </li>
-
-                  <li class="last">
-                    <a href="" class="" title="">Resume Version #2</a>
-
-                    <a href="" class="delete-RESUME pull-right" title="">
-                      <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
-                    </a>
-                  </li>
+                      <a href="#" class="delete-RESUME delete-resume pull-right" data="<%= resume.id %>" title="">
+                        <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
+                      </a>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
 

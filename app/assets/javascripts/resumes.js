@@ -69,6 +69,12 @@ $(document).ready(function() {
 
       $(".editable").editable();
 
+      $(".resume-link").click(function() {
+        var data = $(this).attr('data');
+        $(".resume").hide();
+        $(".resume-"+ data ).show();
+      });
+
       $(".delete-resume").click(function() {
         if (window.confirm("Are you sure?")) {
           var data = $(this).attr('data');
@@ -76,7 +82,7 @@ $(document).ready(function() {
             url: '/resumes/' + $(this).attr('data'),
             type: 'DELETE',
             success: function() {
-              $("#resume-"+ data ).fadeOut();
+              $(".resume-"+ data ).fadeOut();
             }
           });
         }
