@@ -25,10 +25,13 @@
 </script>
 <script id="part-template" type="text/x-handlebars-template">
   <li id="part-{{ id }}" class="part">
-    <h5>{{ name }}<button class="delete-part" data="{{ id }}">Delete</button></h5>
-    <p>{{ location }}</p>
-    <p>{{ start_date }} - {{ end_date }}</p>
-    <p>{{ notes }}</p>
+    <h5><a href="#" class="myeditable-{{ id }} editable editable-click editable-unsaved" id="new-name-{{ id }}" data-type="text" data-name="name" data-original-title="Enter name">{{ name }}</a><button class="delete-part" data="{{ id }}">Delete</button></h5>
+    <p><a href="#" class="myeditable-{{ id }} editable editable-click editable-unsaved" id="new-location-{{ id }}" data-type="text" data-name="location" data-original-title="Enter location">{{ location }}</a></p>
+    <p><a href="#" class="myeditable-{{ id }} editable editable-click editable-unsaved" id="new-startdate-{{ id }}" data-type="text" data-name="start_date" data-original-title="Enter start date">{{ start_date }}</a> - <a href="#" class="myeditable-{{ id }} editable editable-click editable-unsaved" id="new-enddate-{{ id }}" data-type="text" data-name="location" data-original-title="Enter location">{{ end_date }}</a></p>
+    <p><a href="#" class="myeditable-{{ id }} editable editable-click editable-unsaved" id="new-notes-{{ id }}" data-type="text" data-name="notes" data-original-title="Enter notes">{{ notes }}</a></p>
+    
+    <button id="save-btn-{{ id }}" val="{{ id }}" class="btn btn-primary">Save new user!</button>
+    <button id="reset-btn-{{ id }}" class="btn pull-right">Reset</button>
   </li>
 </script>
 

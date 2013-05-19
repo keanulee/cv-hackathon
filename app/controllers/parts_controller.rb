@@ -61,24 +61,28 @@ class PartsController < ApplicationController
   def edit
     @part = Part.find(params[:id])
   end
-
+=end
 
   # PUT /parts/1
   # PUT /parts/1.json
   def update
     @part = Part.find(params[:id])
+    @part.name = params[:name]
+    @part.location = params[:location]
+    @part.start_date = params[:start_date]
+    @part.end_date = params[:end_date]
+    @part.notes = params[:notes]
 
-    respond_to do |format|
-      if @part.update_attributes(params[:part])
-        format.html { redirect_to @part, notice: 'Part was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @part.errors, status: :unprocessable_entity }
-      end
+
+    if @part.save
+      render json: { :results => true }
+    else
+      render json: { :results => false }
     end
+
+    
   end
 
   
-=end
+
 end
