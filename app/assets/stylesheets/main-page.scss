@@ -285,7 +285,26 @@ a.editable,
 span.editable {
 	color: #F1C40F !important;
 	border: none !important;
-	border-bottom: 1px dotted #F1C40F !important;
+	border-bottom: 2px dotted #F1C40F !important;
+}
+
+a.editable:after,
+span.editable:after {
+	content: '  (editable)';
+	color: #F1C40F !important;
+	font-size: 0.4em;
+}
+
+.main-page .resume-details .section-area .section {
+	background-color: transparent !important;
+}
+
+.main-page .resume-details .section-area .section-header a {
+	border: none !important;
+}
+
+.section-area .resume h1 a.editable.section {
+	border-bottom: 2px dotted #F1C40F;
 }
 
 span.livicon.editable {
@@ -304,11 +323,22 @@ span.livicon.editable {
 
 a.create-section-area.editable {
 	color: #FFF !important;
-display: block;
-margin: 0.8em 1.8em;
-background-color: #E78D0E;
-min-height: 21px;
-width: 46.2em;
-padding: 0.5em 1em;
+	display: block;
+	margin: 0.8em 1.8em;
+	background-color: #E78D0E;
+	min-height: 21px;
+	width: 46.2em;
+	padding: 0.5em 1em;
+	border: none !important;
 }
+a.create-section-area.editable:after {
+	font-size: 1.2em;
+	content: '';
+}
+
+.editable-container.editable-inline {
+	margin-left: 2em;
+}
+
+
 /* End: HACKS! */
