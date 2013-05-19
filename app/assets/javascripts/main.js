@@ -49,5 +49,31 @@ $(document).ready(function() {
         }
       }
     }
+
+    $(".delete-section").click(function() {
+      if (window.confirm("Are you sure?")) {
+        var data = $(this).attr('data');
+        $.ajax({
+          url: '/sections/' + $(this).attr('data'),
+          type: 'DELETE',
+          success: function() {
+            $("#section-"+ data ).fadeOut();
+          }
+        });
+      }
+    });
+
+    $(".delete-part").click(function() {
+      if (window.confirm("Are you sure?")) {
+        var data = $(this).attr('data');
+        $.ajax({
+          url: '/parts/' + $(this).attr('data'),
+          type: 'DELETE',
+          success: function() {
+            $("#part-"+ data ).fadeOut();
+          }
+        });
+      }
+    });
   });
 });
