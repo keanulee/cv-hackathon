@@ -91,4 +91,12 @@ class ResumesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def copy
+    @resume = Resume.find(params[:id]).dup( :include => { :sections => :parts } )
+    @resume.name = "#{@resume.name} (copy)"
+    @resume.save
+
+    redirect_to resumes_url
+  end
 end
