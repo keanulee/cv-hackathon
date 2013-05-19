@@ -30,6 +30,7 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-x-editable-rails'
 gem 'jquery-ui-rails'
+gem 'deep_cloneable', '~> 1.5.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

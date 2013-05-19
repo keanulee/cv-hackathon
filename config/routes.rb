@@ -2,13 +2,26 @@ CvHackathon::Application.routes.draw do
   devise_for :users
 
   resources :linked_in_profiles
-  resources :resumes
-  resources :sections
-  resources :parts
-  post 'parts/' => 'parts#create'
-  delete 'parts/:id' => 'parts#destroy'
-  post 'sections/:id' => 'sections#update'
-  post 'parts/:id' => 'parts#update'
+
+  resources :resumes do
+    member do
+      get 'copy'
+      post 'update'
+    end
+  end
+
+  resources :sections do
+    member do
+      post 'update'
+    end
+  end
+
+  resources :parts do
+    member do
+      post 'update'
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
