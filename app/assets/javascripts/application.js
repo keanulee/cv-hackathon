@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-editable
 //= require bootstrap-editable-inline
-//= require jquery.ui.slider
+//= require jquery.ui.all
 //= require raphael-min
 //= require_tree .

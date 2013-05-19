@@ -38,6 +38,9 @@ $(document).ready(function() {
           
           $("#sections-list-" + data[i].id).append(html);
           
+          $( "#sections-list-" + data[i].id ).sortable();
+          //$( "#sections-list-" + data[i].id ).disableSelection();
+
           $('#part-create-' + section.id).editable({
             url: '/parts/',
             title: 'Enter new part',
@@ -63,6 +66,8 @@ $(document).ready(function() {
             };
             var html = template(context);
             $("#parts-list-" + section.id).append(html);
+            $( "#parts-list-" + section.id ).sortable();
+            //$( "#parts-list-" + section.id ).disableSelection();
           }
         }
       }
