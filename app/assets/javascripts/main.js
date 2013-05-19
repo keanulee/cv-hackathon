@@ -1,79 +1,50 @@
+// Some general UI pack related JS
+
+$(function () {
+  // Custom selects
+  $("select").dropkick();
+});
+
 $(document).ready(function() {
-  $.get("/resumes.json", function(data) {
-
-    var i,j,k;
-    for (i = 0; i < data.length; ++i) 
-    {
-      var source    = $("#resume-template").html();
-      var template  = Handlebars.compile(source);
-
-      var context = {
-        name: data[i].name,
-        id:   data[i].id
-      };
-      var html = template(context);
-
-      $("ul#resumes-list").append(html);
-
-      for(j = 0; j < data[i].sections.length; ++j)
-      {
-        var source   = $("#section-template").html();
-        var template = Handlebars.compile(source);
-        
-        var section = data[i].sections[j];
-        var context = {
-          name: section.name,
-          id:   section.id
-        };
-        var html = template(context);
-
-        $("ul#sections-list-" + data[i].id).append(html);
-
-        for(k = 0; k < section.parts.length; ++k)
-        {
-          var source   = $("#part-template").html();
-          var template = Handlebars.compile(source);
-
-          var part    = section.parts[k];
-          var context = {
-            name:       part.name,
-            location:   part.location,
-            start_date: part.start_date,
-            end_date:   part.end_date,
-            notes:      part.notes,
-            id:         part.id
-          };
-          var html = template(context);
-
-          $("ul#parts-list-" + section.id).append(html);
-        }
-      }
-    }
-
-    $(".delete-section").click(function() {
-      if (window.confirm("Are you sure?")) {
-        var data = $(this).attr('data');
-        $.ajax({
-          url: '/sections/' + $(this).attr('data'),
-          type: 'DELETE',
-          success: function() {
-            $("#section-"+ data ).fadeOut();
-          }
-        });
-      }
-    });
-
-    $(".delete-part").click(function() {
-      if (window.confirm("Are you sure?")) {
-        var data = $(this).attr('data');
-        $.ajax({
-          url: '/parts/' + $(this).attr('data'),
-          type: 'DELETE',
-          success: function() {
-            $("#part-"+ data ).fadeOut();
-          }
-        });
-      }
-    });
+  // Todo list
+  $(".todo li").click(function() {
+    $(this).toggleClass("todo-done");
   });
+
+  // Init tooltips
+  $("[data-toggle=tooltip]").tooltip("show");
+
+  // Init tags input
+  $("#tagsinput").tagsInput();
+
+  // Init jQuery UI slider
+  $("#slider").slider({
+    min: 1,
+    max: 5,
+    value: 2,
+    orientation: "horizontal",
+    range: "min",
+  });
+
+  // JS input/textarea placeholder
+  $("input, textarea").placeholder();
+
+  // Make pagination demo work
+  $(".pagination a").click(function() {
+    if (!$(this).parent().hasClass("previous") && !$(this).parent().hasClass("next")) {
+      $(this).parent().siblings("li").removeClass("active");
+      $(this).parent().addClass("active");
+    }
+  });
+
+  $(".btn-group a").click(function() {
+    $(this).siblings().removeClass("active");
+    $(this).addClass("active");
+  });
+
+  // Disable link click not scroll top
+  $("a[href='#']").click(function() {
+    return false
+  });
+
 });
