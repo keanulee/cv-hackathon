@@ -1,4 +1,29 @@
 class PartsController < ApplicationController
+ 
+  # POST /parts
+  # POST /parts.json
+  def create
+    @part = Part.new(:name => params[:value])
+    @part.section_id = params[:pk]
+
+    if @part.save
+      render json: { :results => true }
+    else
+      render json: { :results => false }
+    end
+  end
+
+  # DELETE /parts/1
+  # DELETE /parts/1.json
+  def destroy
+    @part = Part.find(params[:id])
+    @part.destroy
+
+    render nothing: true
+  end
+
+=begin
+
   # GET /parts
   # GET /parts.json
   def index
@@ -36,45 +61,23 @@ class PartsController < ApplicationController
   def edit
     @part = Part.find(params[:id])
   end
-
-  # POST /parts
-  # POST /parts.json
-  def create
-    @part = Part.new(params[:part])
-
-    respond_to do |format|
-      if @part.save
-        format.html { redirect_to @part, notice: 'Part was successfully created.' }
-        format.json { render json: @part, status: :created, location: @part }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @part.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+=end
 
   # PUT /parts/1
   # PUT /parts/1.json
   def update
-    @part = Part.find(params[:id])
+    @part = Part.find(params[:pk])
+    @part.update_attributes( params[:name] => params[:value] )
 
-    respond_to do |format|
-      if @part.update_attributes(params[:part])
-        format.html { redirect_to @part, notice: 'Part was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @part.errors, status: :unprocessable_entity }
-      end
+    if @part.save
+      render json: { :results => true }
+    else
+      render json: { :results => false }
     end
+
+    
   end
 
-  # DELETE /parts/1
-  # DELETE /parts/1.json
-  def destroy
-    @part = Part.find(params[:id])
-    @part.destroy
+  
 
-    render nothing: true
-  end
 end
