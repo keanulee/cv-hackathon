@@ -6,6 +6,7 @@ Description: The homepage css for the pinpointcv.com design;
 	$pcv_blue: #1ba0d8;
 	$pcv_orange: #e78d0e;
 
+
 .main-page {
 	display: block;
 	margin: 4em auto;
@@ -17,20 +18,152 @@ Description: The homepage css for the pinpointcv.com design;
 	.resume-details {
 		display: inline-block !important;
 		vertical-align: top;
-		background-color: #dedede;
-		min-height: 30em;
+		background-color: #fff;
+		min-height: 40em;
+		// border: 1px solid #dedede;
+		
+		li {
+			list-style-type: none;
+		}
 
 		.section-area {
 			margin: 2em auto;
+			width: 50em;
+			border-radius: none;
+			border: none !important;
+
+			.resume {
+				margin: 0 0 5em;
+			}
 
 			.section-header {
 				background-color: $pcv_orange;
-				// color: #fff;
+				border-radius: none;
 
 				a {
 					color: #fff;
 				}
 
+			}
+
+			.section {
+				background-color: #ededed;
+				border: none !important;
+				margin: 2em auto;
+
+				.section-functionality {
+					width: 90%;
+					margin: 1em auto;
+					background-color: #fff;
+					padding: 0.5em 0.5em 0.8em;
+					min-height: 2em;
+					height: auto;
+					color: #777;
+
+					h4,
+					a {
+						display: inline-block;
+						vertical-align: middle;
+						height: 32px !important;
+						margin: 0;
+					}
+
+					a {
+						display: inline-block;
+						vertical-align: top;
+						margin-right: 1em;
+
+						&.last {
+							margin-right: 0;
+						}
+					}
+
+					h4 {
+						padding-left: 0.2em;
+						line-height: 32px;
+					}
+				}
+
+				.section-info-container {
+					width: 90%;
+					margin: 1em auto;
+
+					.section-info {
+
+						.info-area {
+							width: 90%;
+							margin: 1em auto;
+
+							.info-header {
+								background-color: $pcv_blue;
+
+
+								a {
+									color: #fff;
+								}
+							}
+
+							.info {
+								background-color: #ddd;
+
+								.info-functionality {
+									width: 90%;
+									margin: 1em auto;
+									background-color: #fff;
+									padding: 0.5em;
+									min-height: 2em;
+									height: auto;
+									color: #777;
+									
+									h4,
+									a {
+										display: inline-block;
+										vertical-align: middle;
+										height: 32px !important;
+										margin: 0;
+									}
+
+									h4 {
+										line-height: 32px;
+									}
+
+								}
+
+							.info-inner {
+
+								ul {
+									list-style-type: none;
+									margin-left: 0;
+
+								}
+
+								li {
+									margin: 0.5em auto;
+									background-color: #fff;
+									line-height: 30px;
+
+									span {
+
+										&.field {
+											padding: 0 0.5em;
+											color: #999;
+										}
+
+										&.data {
+
+										}
+									}
+
+								}
+
+							}
+
+							}
+						}
+					}
+				}
+
+				
 			}
 		}
 	}
@@ -38,9 +171,270 @@ Description: The homepage css for the pinpointcv.com design;
 	.resumes {
 		display: inline-block !important;
 		vertical-align: top;
-		background-color: #ccc;
-		margin-left: 0;
-		min-height: 10em;
-		width: 24em;
+		margin: 1em 0 0 0;
+		min-height: 40em;
+		width: 23em;
+
+		.box {
+			display: block;
+			background-color: #F9FADC;
+			min-height: 10em;
+			margin-top: 4.5em;
+			padding: 1em;
+			width: 21em !important;
+
+			.upper {
+				background-color: #fff;
+				padding: 0.2em 0.5em;
+
+				h3,
+				a {
+					display: inline-block;
+					vertical-align: middle;
+					height: 32px;
+					line-height: 32px;
+				}
+
+				h3 {
+					margin: 0;
+				}
+
+				a {
+					width: 32px;
+
+					span {
+						height: 32px !important;
+					}
+				}
+			}
+
+			.versions {
+				margin: 1.5em 0 0;
+				min-height: 10em;
+				display: block;
+				background-color: #fff;
+
+				ul {
+					list-style-type: none;
+					margin: 0;
+
+					li {
+						border-bottom: 1px solid #ddd;
+						padding: 0.5em 0.5em;
+						
+						a {
+							color: $pcv_blue;
+							display: inline-block;
+							vertical-align: middle;
+							height: 28px !important;
+							line-height: 28px;
+
+							&.livicons {
+								color: transparent;
+							}
+
+							span.livicon {
+								height: 28px !important;
+							}
+						}
+
+						a:hover,
+						a:focus {
+							color: $pcv_orange;
+						}
+
+						&.last {
+							border-bottom: none;
+						}
+
+					}
+				}
+			}
+
+			.export {
+				margin: 1.5em auto 0;
+				display: block;
+
+
+				a {
+					padding-bottom: 16px;
+
+					i,
+					span {
+						display: inline-block;
+						vertical-align: middle;
+						height: 18px !important;
+						line-height: 18px;
+					}
+
+					span {
+						font-size: 18px;
+						margin-left: 0.5em;
+					}
+				}
+			}
+
+		}
 	}
 }
+
+/* Start: HACKS! */
+a.editable,
+span.editable {
+	color: #F1C40F !important;
+	border: none !important;
+	border-bottom: 2px dotted #F1C40F !important;
+}
+
+a.editable:after,
+span.editable:after {
+	content: '  (editable)';
+	color: #F1C40F !important;
+	font-size: 0.4em;
+}
+
+.main-page .resume-details .section-area .section {
+	background-color: transparent !important;
+}
+
+.main-page .resume-details .section-area .section-header a {
+	border: none !important;
+}
+
+.section-area .resume h1 a.editable.section {
+	border-bottom: 2px dotted #F1C40F;
+}
+
+span.livicon.editable.editable-click {
+	color: transparent !important;
+	border: none !important;
+}
+span.livicon.editable.editable-click:after {
+	color: transparent !important;
+	border: none !important;
+}
+
+.editable-input input {
+	padding: 3px 0 6px 10px !important;
+	width: 20em;
+}
+.personal-info .editable-input input {
+	width: 38em;
+}
+
+.editable-input input:active,
+.editable-input input:focus {
+	border: 2px solid #F1C40F !important;
+}
+
+a.create-section-area.editable {
+	color: #FFF !important;
+	display: block;
+	margin: 0.8em 1.8em;
+	background-color: #E78D0E;
+	min-height: 21px;
+	width: 46.2em;
+	padding: 0.5em 1em;
+	border: none !important;
+}
+a.create-section-area.editable:after {
+	font-size: 1.2em;
+	content: '';
+}
+
+a.create-section-area.editable~.editable-container.editable-inline {
+	margin-left: 2em;
+}
+
+.editable-container.editable-inline {
+}
+
+/* Personal Information */
+.personal-info {
+display: block;
+width: 46em;
+margin: 1em auto;
+background-color: #EFEFEF;
+padding: 1em 2em 3em;
+
+	&:before {
+		content: 'Personal Information';
+		font-size: 32px;
+		color: $pcv_blue;
+		display: block;
+		font-weight: 900;
+		margin: 10px 0;
+		background-color: #fff;
+		padding-left: 0.2em;
+		
+	}
+
+	.field {
+display: block;
+background-color: #FFF;
+margin: 1em auto;
+height: 40px;
+line-height: 37px;
+padding-left: 0.2em;
+
+		a {
+			font-size: 1.2em;
+		}
+	}
+}
+
+.collapse {
+	background-color: #efefef;
+}
+
+.section-area li.resume h1 a.editable.section.editable-click {
+	border-bottom: 2px dotted #F1C40F !important;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	margin-top: 3px;
+	background-image: url("/assets/twitter/bootstrap/glyphicons-halflings-white.png") !important;
+}
+
+.editable-buttons .editable-cancel {
+	background-color: #E74C3C !important;
+}
+
+.editable-buttons .editable-cancel:hover,
+.editable-buttons .editable-cancel:hover {
+	background-color: #EC7063 !important;
+}
+
+.linkedin {
+	margin-right: 3em;
+}
+
+.dup {
+	background-color: transparent !important;
+}
+
+.editable-buttons {
+	margin-top: 2px !important;
+}
+
+.main-page .resume-details .section-area .section .section-info-container .section-info .info-area .info .info-inner li {
+line-height: 38px !important;
+height: 40px !important;
+}
+
+.main-page .resume-details .section-area .section .section-info-container .section-info .info-area .info .info-functionality {
+	height: 2.5em !important;
+}
+
+.main-page .resume-details .section-area .section .section-info-container .section-info .info-area .info-header a {
+	min-height: 20px !important;
+}
+
+.form-signin .control-group input,
+.register-form-page .control-group input {
+
+width: 24em;
+margin-left: 1em;
+}
+
+/* End: HACKS! */

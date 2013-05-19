@@ -11,15 +11,44 @@
 <div class="masthead">
   <div class="container">
     <h1>
-      <%= image_tag "logo-full.png", :class => "logo-full", :alt => "pinpointCV - description here" %>
+      <a href="http://pinpointcv.com" title="" target="_self">
+        <%= image_tag "logo-full.png", :class => "logo-full", :alt => "pinpointCV - description here" %>
+      </a>
     </h1>
 
     <ul class="nav nav-pills pull-right">
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-        </li>
+      <% if current_page?('/') %>
+        <li class="active"><a href="/" title="" target="_self">Home</a></li>
+      <% else %>
+          <li><a href="/" title="" target="_self">Home</a></li>
       <% end %>
+
+
+      <% if user_signed_in? %>
+        <% if current_page?('/resumes') %>
+          <li class="active"><a href="/resumes" title="" target="_self">Resumes</a></li>
+        <% else %>
+          <li><a href="/resumes" title="" target="_self">Resumes</a></li>
+        <% end %>
+        
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <% if current_page?('/resumes') %>
+          <li class="active"><a href="/resumes" title="" target="_self">Login</a></li>
+        <% else %>
+            <li><a href="/resumes" title="" target="_self">Login</a></li>
+        <% end %>
+
+        <% if current_page?('/users/sign_up') %>
+          <li class="active"><a href="/users/sign_up" title="" target="_self">Register</a></li>
+        <% else %>
+            <li><a href="/users/sign_up" title="" target="_self">Register</a></li>
+        <% end %>
+
+      <% end %>
+
+
+        
     </ul>
   </div>
 </div>
@@ -29,6 +58,12 @@
     <%= yield %>
   </div> <!-- /container -->
 </div> <!-- /main_content -->
+
+<div id="footer">
+  <div class="container">
+    <p>©pinpointCV Company 2013</p>
+  </div>
+</div>
 
 </body>
 </html>

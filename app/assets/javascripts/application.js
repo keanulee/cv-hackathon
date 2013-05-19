@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require bootstrap-editable
 //= require bootstrap-editable-inline
-//= require jquery.ui.slider
+//= require jquery.ui.all
 //= require raphael-min
 //= require_tree .
