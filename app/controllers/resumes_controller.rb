@@ -67,15 +67,26 @@ class ResumesController < ApplicationController
   # PUT /resumes/1
   # PUT /resumes/1.json
   def update
-    @resume = Resume.find(params[:id])
-
-    respond_to do |format|
-      if @resume.update_attributes(params[:resume])
-        format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
-        format.json { head :no_content }
+    if params[:pk]
+      @resume = Resume.find(params[:pk])
+      @resume.update_attributes( params[:name] => params[:value] )
+      
+      if @resume.save
+        render json: { :results => true }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
+        render json: { :results => false }
+      end
+    else
+      @resume = Resume.find(params[:id])
+
+      respond_to do |format|
+        if @resume.update_attributes(params[:resume])
+          format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @resume.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -86,10 +97,7 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.destroy
 
-    respond_to do |format|
-      format.html { redirect_to resumes_url }
-      format.json { head :no_content }
-    end
+    render nothing: true
   end
 
   def copy

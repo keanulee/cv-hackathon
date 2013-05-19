@@ -62,6 +62,19 @@ $(document).ready(function() {
 
       $(".editable").editable();
 
+      $(".delete-resume").click(function() {
+        if (window.confirm("Are you sure?")) {
+          var data = $(this).attr('data');
+          $.ajax({
+            url: '/resumes/' + $(this).attr('data'),
+            type: 'DELETE',
+            success: function() {
+              $("#resume-"+ data ).fadeOut();
+            }
+          });
+        }
+      });
+
       $(".delete-section").click(function() {
         if (window.confirm("Are you sure?")) {
           var data = $(this).attr('data');
