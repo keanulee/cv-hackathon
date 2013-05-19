@@ -4,6 +4,7 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
+    @contact_info = current_user.contact_info
     @resumes = Resume.all( :conditions => { :user_id => current_user.id }, :include => { :sections => :parts } )
     #puts YAML::dump(@jsonresumes)
 
@@ -71,15 +72,26 @@ class ResumesController < ApplicationController
   # PUT /resumes/1
   # PUT /resumes/1.json
   def update
-    @resume = Resume.find(params[:id])
-
-    respond_to do |format|
-      if @resume.update_attributes(params[:resume])
-        format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
-        format.json { head :no_content }
+    if params[:pk]
+      @resume = Resume.find(params[:pk])
+      @resume.update_attributes( params[:name] => params[:value] )
+      
+      if @resume.save
+        render json: { :results => true }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
+        render json: { :results => false }
+      end
+    else
+      @resume = Resume.find(params[:id])
+
+      respond_to do |format|
+        if @resume.update_attributes(params[:resume])
+          format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @resume.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -90,9 +102,14 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.destroy
 
-    respond_to do |format|
-      format.html { redirect_to resumes_url }
-      format.json { head :no_content }
-    end
+    render nothing: true
+  end
+
+  def copy
+    @resume = Resume.find(params[:id]).dup( :include => { :sections => :parts } )
+    @resume.name = "#{@resume.name} (copy)"
+    @resume.save
+
+    redirect_to resumes_url
   end
 end

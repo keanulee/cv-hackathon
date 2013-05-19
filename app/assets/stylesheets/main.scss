@@ -20,8 +20,8 @@ Begin: General Style;
 	$pcv_blue: #1ba0d8;
 	$pcv_orange: #e78d0e;
 
-	$logo: 'img/logo.png';
-	$logo-full: 'img/logo-full.png';
+	$logo: 'images/logo.png';
+	$logo-full: 'images/logo-full.png';
 
 
 	body {
@@ -50,7 +50,7 @@ End: General Style;
 @import "header";
 @import "footer";
 @import "home";
-@import "landing-page";
+// @import "landing-page";
 @import "login";
 @import "register";
 @import "main-page";
