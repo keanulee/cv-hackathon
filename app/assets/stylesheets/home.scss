@@ -15,12 +15,16 @@ Description: The homepage css for the pinpointcv.com design;
 	margin: 4em 2em 3em 0;
 	text-align: center;
 	background-color: #fff;
-	width: 50em;
+	width: 81.5em;
 	display: inline-block;
 	vertical-align: top;
 	padding: 2em 1em 4em 1em;
-	min-height: 22.5em;
+	min-height: 18em;
 	
+	&.min {
+		margin-top: 0;
+		min-height: 5em;
+	}
 
 	h1 {
 		font-size: 2.5em;
@@ -100,7 +104,7 @@ Description: The homepage css for the pinpointcv.com design;
 
 /* Supporting marketing content */
 .marketing {
-	margin: 4em 0 5em;
+	margin: 4em 0 4em;
 
 	.intro {
 		background-color: #fff;
@@ -133,4 +137,14 @@ Description: The homepage css for the pinpointcv.com design;
 			margin: 1em auto;
 		}
 	}
+}
+
+.form-signin .control-group input {
+	background-color: #fff !important;
+}
+
+input:-webkit-autofill {
+background-color: #fff !important;
+background-image: none !important;
+color: #000 !important;
 }

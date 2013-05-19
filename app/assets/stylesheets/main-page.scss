@@ -316,6 +316,10 @@ span.livicon.editable.editable-click:after {
 
 .editable-input input {
 	padding: 3px 0 6px 10px !important;
+	width: 20em;
+}
+.personal-info .editable-input input {
+	width: 38em;
 }
 
 .editable-input input:active,
@@ -347,25 +351,34 @@ a.create-section-area.editable~.editable-container.editable-inline {
 
 /* Personal Information */
 .personal-info {
-	display: block;
-	width: 50em;
-	margin: 1em auto;
+display: block;
+width: 46em;
+margin: 1em auto;
+background-color: #EFEFEF;
+padding: 1em 2em 3em;
 
 	&:before {
 		content: 'Personal Information';
 		font-size: 32px;
-		color: #F1C40F;
+		color: $pcv_blue;
 		display: block;
 		font-weight: 900;
 		margin: 10px 0;
+		background-color: #fff;
+		padding-left: 0.2em;
 		
 	}
 
 	.field {
-		display: block;
+display: block;
+background-color: #FFF;
+margin: 1em auto;
+height: 40px;
+line-height: 37px;
+padding-left: 0.2em;
 
 		a {
-
+			font-size: 1.2em;
 		}
 	}
 }
@@ -400,5 +413,28 @@ a.create-section-area.editable~.editable-container.editable-inline {
 	background-color: transparent !important;
 }
 
+.editable-buttons {
+	margin-top: 2px !important;
+}
+
+.main-page .resume-details .section-area .section .section-info-container .section-info .info-area .info .info-inner li {
+line-height: 38px !important;
+height: 40px !important;
+}
+
+.main-page .resume-details .section-area .section .section-info-container .section-info .info-area .info .info-functionality {
+	height: 2.5em !important;
+}
+
+.main-page .resume-details .section-area .section .section-info-container .section-info .info-area .info-header a {
+	min-height: 20px !important;
+}
+
+.form-signin .control-group input,
+.register-form-page .control-group input {
+
+width: 24em;
+margin-left: 1em;
+}
 
 /* End: HACKS! */
