@@ -2,6 +2,12 @@ CvHackathon::Application.routes.draw do
   devise_for :users
 
   resources :linked_in_profiles
+  
+  resources :contact_infos do
+    member do
+      post 'update'
+    end
+  end
 
   resources :resumes do
     member do

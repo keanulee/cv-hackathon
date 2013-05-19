@@ -32,6 +32,7 @@ class LinkedInProfilesController < ApplicationController
     @profile = client.profile
     @profile_fields = client.profile(:fields => %w(positions educations))
 
+    current_user.import_profile @profile
     current_user.import_profile_fields @profile_fields
 
     redirect_to resumes_path

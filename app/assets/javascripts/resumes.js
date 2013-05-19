@@ -14,7 +14,7 @@ $(document).ready(function() {
         };
         var html = template(context);
 
-        $("ul#resumes-list").append(html);
+        $("#resumes-list").append(html);
 
         $('#section-create-' + data[i].id).editable({
           url: '/sections/',
@@ -36,7 +36,7 @@ $(document).ready(function() {
           };
           var html = template(context);
           
-          $("ul#sections-list-" + data[i].id).append(html);
+          $("#sections-list-" + data[i].id).append(html);
           
           $('#part-create-' + section.id).editable({
             url: '/parts/',
@@ -58,10 +58,11 @@ $(document).ready(function() {
               start_date: part.start_date,
               end_date:   part.end_date,
               notes:      part.notes,
-              id:         part.id
+              id:         part.id,
+              section_id: section.id
             };
             var html = template(context);
-            $("ul#parts-list-" + section.id).append(html);
+            $("#parts-list-" + section.id).append(html);
           }
         }
       }
