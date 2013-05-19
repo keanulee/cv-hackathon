@@ -55,17 +55,13 @@ class SectionsController < ApplicationController
   # PUT /sections/1
   # PUT /sections/1.json
   def update
-    @section = Section.find(params[:id])
-    @section.name = params[:value]
+    @section = Section.find(params[:pk])
+    @section.update_attributes( params[:name] => params[:value] )
     
     if @section.save
       render json: { :results => true }
-      #format.html { redirect_to @section, notice: 'Section was successfully updated.' }
-      #format.json { head :no_content }
     else
       render json: { :results => false }
-      #format.html { render action: "edit" }
-      #format.json { render json: @section.errors, status: :unprocessable_entity }
     end
   
   end

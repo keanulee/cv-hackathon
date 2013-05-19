@@ -66,13 +66,8 @@ class PartsController < ApplicationController
   # PUT /parts/1
   # PUT /parts/1.json
   def update
-    @part = Part.find(params[:id])
-    @part.name = params[:name]
-    @part.location = params[:location]
-    @part.start_date = params[:start_date]
-    @part.end_date = params[:end_date]
-    @part.notes = params[:notes]
-
+    @part = Part.find(params[:pk])
+    @part.update_attributes( params[:name] => params[:value] )
 
     if @part.save
       render json: { :results => true }
