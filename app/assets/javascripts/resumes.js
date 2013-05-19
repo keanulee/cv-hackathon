@@ -38,6 +38,9 @@ $(document).ready(function() {
           
           $("#sections-list-" + data[i].id).append(html);
           
+          $("#sections-list-" + data[i].id ).sortable();
+          $("#sections-list-" + data[i].id ).disableSelection();
+
           $('#part-create-' + section.id).editable({
             url: '/parts/',
             title: 'Enter new part',
@@ -62,7 +65,9 @@ $(document).ready(function() {
               section_id: section.id
             };
             var html = template(context);
-            $("#parts-list-" + section.id).append(html);
+            $("#parts-list-" + section.id ).append(html);
+            $("#parts-list-" + section.id ).sortable();
+            $("#parts-list-" + section.id ).disableSelection();
           }
         }
       }
@@ -116,13 +121,13 @@ $(document).ready(function() {
               // PART TITLE
               doc.setFontType("italic");
               doc.setFontSize(18);
-              doc.text(20, height, data.resume.sections[i].parts[j].name);
+              doc.text(20, height, data.resume.sections[i].parts[j].name || "");
               height=height+7.5;
 
               // PART SUBTITLE
               doc.setFontType("bold");
               doc.setFontSize(16);
-              doc.text(20, height, data.resume.sections[i].parts[j].location);
+              doc.text(20, height, data.resume.sections[i].parts[j].location || "");
               height=height+5;
 
               // PART START & END DATE
@@ -135,7 +140,7 @@ $(document).ready(function() {
               // Part DESCRIPTION
               doc.setFontSize(11);
               doc.setFontType("normal");
-              doc.text(20, height, data.resume.sections[i].parts[j].notes)
+              doc.text(20, height, data.resume.sections[i].parts[j].notes || "")
               height=height+30;
               // -- PART FINISHED
               // -- SECTION FINISHED
