@@ -161,8 +161,12 @@
               <ul id="resumes-list">
               </ul>
 <script id="resume-template" type="text/x-handlebars-template">
-  <li class="resume">
-    <h1>{{ name }}</h1>
+  <li id="resume-{{ id }}" class="resume">
+    <h1>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/resumes/{{ id }}">{{ name }}</a>
+    </h1>
+    <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
+    <button class="btn btn-danger delete-resume" data="{{ id }}">Delete</button>
     <ul id="sections-list-{{ id }}">
     </ul>
     <a href="#" id="section-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Section</a> 
@@ -208,6 +212,12 @@
     </div>
 
     
+    <h3>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/sections/{{ id }}">{{ name }}</a>
+    </h3>
+    <button class="btn btn-danger delete-section" data="{{ id }}">Delete</button></h3>
+    <ul id="parts-list-{{ id }}">
+    </ul>
     <a href="#" id="part-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Part</a>
 
   </li>
@@ -251,7 +261,7 @@
   <!--<li id="part-{{ id }}" class="part">
     <h5>
       <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/parts/{{ id }}">{{ name }}</a>
-      <button class="delete-part" data="{{ id }}">Delete</button>
+      <button class="btn btn-danger delete-part" data="{{ id }}">Delete</button>
     </h5>
     <p>
       <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="location" data-url="/parts/{{ id }}">{{ location }}</a>
@@ -271,5 +281,5 @@
 
 <br />
 
-<%= link_to 'New Resume', new_resume_path %> |
-<%= link_to 'Import from LinkedIn', linked_in_profiles_path %>
+<%= link_to 'New Resume', new_resume_path, class: "btn btn-primary" %>
+<%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse" %>
