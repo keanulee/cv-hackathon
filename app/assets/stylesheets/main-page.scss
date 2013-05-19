@@ -7,8 +7,6 @@ Description: The homepage css for the pinpointcv.com design;
 	$pcv_orange: #e78d0e;
 
 
-
-
 .main-page {
 	display: block;
 	margin: 4em auto;
@@ -21,7 +19,7 @@ Description: The homepage css for the pinpointcv.com design;
 		display: inline-block !important;
 		vertical-align: top;
 		background-color: #fff;
-		min-height: 30em;
+		min-height: 40em;
 		// border: 1px solid #dedede;
 		
 		li {
@@ -174,7 +172,7 @@ Description: The homepage css for the pinpointcv.com design;
 		display: inline-block !important;
 		vertical-align: top;
 		margin: 1em 0 0 0;
-		min-height: 100em;
+		min-height: 40em;
 		width: 23em;
 
 		.box {
@@ -307,7 +305,11 @@ span.editable:after {
 	border-bottom: 2px dotted #F1C40F;
 }
 
-span.livicon.editable {
+span.livicon.editable.editable-click {
+	color: transparent !important;
+	border: none !important;
+}
+span.livicon.editable.editable-click:after {
 	color: transparent !important;
 	border: none !important;
 }
@@ -336,8 +338,66 @@ a.create-section-area.editable:after {
 	content: '';
 }
 
-.editable-container.editable-inline {
+a.create-section-area.editable~.editable-container.editable-inline {
 	margin-left: 2em;
+}
+
+.editable-container.editable-inline {
+}
+
+/* Personal Information */
+.personal-info {
+	display: block;
+	width: 50em;
+	margin: 1em auto;
+
+	&:before {
+		content: 'Personal Information';
+		font-size: 32px;
+		color: #F1C40F;
+		display: block;
+		font-weight: 900;
+		margin: 10px 0;
+		
+	}
+
+	.field {
+		display: block;
+
+		a {
+
+		}
+	}
+}
+
+.collapse {
+	background-color: #efefef;
+}
+
+.section-area li.resume h1 a.editable.section.editable-click {
+	border-bottom: 2px dotted #F1C40F !important;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	margin-top: 3px;
+	background-image: url("/assets/twitter/bootstrap/glyphicons-halflings-white.png") !important;
+}
+
+.editable-buttons .editable-cancel {
+	background-color: #E74C3C !important;
+}
+
+.editable-buttons .editable-cancel:hover,
+.editable-buttons .editable-cancel:hover {
+	background-color: #EC7063 !important;
+}
+
+.linkedin {
+	margin-right: 3em;
+}
+
+.dup {
+	background-color: transparent !important;
 }
 
 

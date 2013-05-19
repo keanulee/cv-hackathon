@@ -7,9 +7,12 @@
             <div class="accordion" id="accordion1">
 
               <div class="personal-info">
-                <a href="#" class="editable section first-name" data-type="text" data-pk="<%= @contact_info.id %>" data-name="first_name" data-url="/contact_infos/<%= @contact_info.id %>"><%= @contact_info.first_name %></a>
-                <a href="#" class="editable section last-name" data-type="text" data-pk="<%= @contact_info.id %>" data-name="last_name" data-url="/contact_infos/<%= @contact_info.id %>"><%= @contact_info.last_name %></a>
-                <a href="#" class="editable section email" data-type="text" data-pk="<%= @contact_info.id %>" data-name="email" data-url="/contact_infos/<%= @contact_info.id %>"><%= @contact_info.email %></a>
+                <div class="field"><a href="#" class="editable section first-name" data-type="text" data-pk="<%= @contact_info.id %>" data-name="first_name" data-url="/contact_infos/<%= @contact_info.id %>"><%= @contact_info.first_name %></a></div>
+
+                <div class="field"><a href="#" class="editable section last-name" data-type="text" data-pk="<%= @contact_info.id %>" data-name="last_name" data-url="/contact_infos/<%= @contact_info.id %>"><%= @contact_info.last_name %></a></div>
+
+                <div class="field"><a href="#" class="editable section email" data-type="text" data-pk="<%= @contact_info.id %>" data-name="email" data-url="/contact_infos/<%= @contact_info.id %>"><%= @contact_info.email %></a></div>
+                
               </div>
               
               <div class="accordion-group section-area" id="resumes-list">
@@ -26,7 +29,7 @@
               <h1>
                 <a href="#" class="editable section" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/resumes/{{ id }}">{{ name }}</a>
               </h1>
-              <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
+              <!--<a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>-->
               <ul id="sections-list-{{ id }}">
               </ul>
               <a class="create-section-area" href="#" id="section-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Section</a> 
@@ -129,7 +132,7 @@
 
           <br />
 
-          <%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse" %>
+          <%= link_to 'Import from LinkedIn', linked_in_profiles_path, class: "btn btn-inverse pull-right linkedin" %>
 
           <div class="span4 resumes">
 
@@ -148,8 +151,15 @@
                     <li class="resume-<%= resume.id %>">
                       <a href="#" class="resume-link" data="<%= resume.id %>" title=""><%= resume.name %></a>
 
-                      <a href="#" class="delete-RESUME delete-resume pull-right" data="<%= resume.id %>" title="">
-                        <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-a="1" data-l="0" data-i="3" data-d="0" data-et="hover" data-op="0"></span>
+                      <a href="#" class="delete-resume pull-right" data="<%= resume.id %>" title="">
+                        <span class="livicon ui-button" data-n="minus" data-s="28" data-c="#E74C3C" data-hc="#C0392B" data-et="hover"></span>
+                      </a>
+
+                      <!-- Previous code
+                      <a href="/resumes/{{ id }}/copy" class="btn btn-primary">Duplicate</a>
+                      -->
+                      <a href="/resumes/<%= resume.id %>/copy" class="pull-right dup" title="">
+                        <span class="livicon ui-button" data-n="recycled" data-s="28" data-c="#E67E22" data-hc="#D35400" data-et="hover"></span>
                       </a>
                     </li>
                   <% end %>

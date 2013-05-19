@@ -73,7 +73,12 @@ $(document).ready(function() {
         var data = $(this).attr('data');
         $(".resume").hide();
         $(".resume-"+ data ).show();
+
+        $(".resume-link").attr("style","");
+        $(this).attr("style","color:#e78d0e");
       });
+
+      $(".resume-link:first").click();
 
       $(".delete-resume").click(function() {
         if (window.confirm("Are you sure?")) {
@@ -113,6 +118,10 @@ $(document).ready(function() {
           });
         }
       });
+
+        $(".pinned").pin({
+            containerSelector: ".resumes"
+        });
     });
   });
 });
