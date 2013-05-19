@@ -5,7 +5,7 @@ class Section < ActiveRecord::Base
   attr_accessible :name
 
   def date_hash_to_string(date_hash)
-    if date_hash["year"]
+    if date_hash && date_hash["year"]
       if date_hash["month"]
         if date_hash["day"]
           "#{Date::MONTHNAMES[date_hash['month']]} #{date_hash['day']}, #{date_hash['year']}"
