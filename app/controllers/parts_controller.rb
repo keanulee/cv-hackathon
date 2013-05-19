@@ -1,4 +1,29 @@
 class PartsController < ApplicationController
+ 
+  # POST /parts
+  # POST /parts.json
+  def create
+    @part = Part.new(:name => params[:value])
+    @part.section_id = params[:pk]
+
+    if @part.save
+      render json: { :results => true }
+    else
+      render json: { :results => false }
+    end
+  end
+
+  # DELETE /parts/1
+  # DELETE /parts/1.json
+  def destroy
+    @part = Part.find(params[:id])
+    @part.destroy
+
+    render nothing: true
+  end
+
+=begin
+
   # GET /parts
   # GET /parts.json
   def index
@@ -37,21 +62,6 @@ class PartsController < ApplicationController
     @part = Part.find(params[:id])
   end
 
-  # POST /parts
-  # POST /parts.json
-  def create
-    @part = Part.new(params[:part])
-
-    respond_to do |format|
-      if @part.save
-        format.html { redirect_to @part, notice: 'Part was successfully created.' }
-        format.json { render json: @part, status: :created, location: @part }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @part.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PUT /parts/1
   # PUT /parts/1.json
@@ -69,12 +79,6 @@ class PartsController < ApplicationController
     end
   end
 
-  # DELETE /parts/1
-  # DELETE /parts/1.json
-  def destroy
-    @part = Part.find(params[:id])
-    @part.destroy
-
-    render nothing: true
-  end
+  
+=end
 end

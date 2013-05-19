@@ -4,8 +4,10 @@ CvHackathon::Application.routes.draw do
   resources :linked_in_profiles
   resources :resumes
   resources :sections
-  resources :parts
-
+  #resources :parts
+  post 'parts/' => 'parts#create'
+  delete 'parts/:id' => 'parts#destroy'
+  post 'sections/:id' => 'sections#update'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
