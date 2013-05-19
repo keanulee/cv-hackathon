@@ -11,15 +11,23 @@
 <div class="masthead">
   <div class="container">
     <h1>
-      <%= image_tag "logo-full.png", :class => "logo-full", :alt => "pinpointCV - description here" %>
+      <a href="http://pinpointcv.com" title="" target="_self">
+        <%= image_tag "logo-full.png", :class => "logo-full", :alt => "pinpointCV - description here" %>
+      </a>
     </h1>
 
     <ul class="nav nav-pills pull-right">
+      <li><a href="/" title="" target="_self">Home</a></li>
+
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-        </li>
+        <li class=""><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><a href="/resumes" title="" target="_self">Login</a></li>
+
+        <li><a href="/users/sign_up" title="" target="_self">Register</a></li>
       <% end %>
+
+        
     </ul>
   </div>
 </div>
