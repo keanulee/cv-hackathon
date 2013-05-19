@@ -8,21 +8,38 @@
     <h1>{{ name }}</h1>
     <ul id="sections-list-{{ id }}">
     </ul>
+    <a href="#" id="section-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Section</a> 
   </li>
 </script>
 <script id="section-template" type="text/x-handlebars-template">
   <li id="section-{{ id }}" class="section">
-    <h3>{{ name }}<button class="delete-section" data="{{ id }}">Delete</button></h3>
+    
+    <h3>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/sections/{{ id }}">{{ name }}</a>
+    </h3>
+    <button class="delete-section" data="{{ id }}">Delete</button></h3>
     <ul id="parts-list-{{ id }}">
     </ul>
+    <a href="#" id="part-create-{{ id }}" data-type="text" data-pk="{{ id }}">Create Part</a>
+
   </li>
 </script>
 <script id="part-template" type="text/x-handlebars-template">
   <li id="part-{{ id }}" class="part">
-    <h5>{{ name }}<button class="delete-part" data="{{ id }}">Delete</button></h5>
-    <p>{{ location }}</p>
-    <p>{{ start_date }} - {{ end_date }}</p>
-    <p>{{ notes }}</p>
+    <h5>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="name" data-url="/parts/{{ id }}">{{ name }}</a>
+      <button class="delete-part" data="{{ id }}">Delete</button>
+    </h5>
+    <p>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="location" data-url="/parts/{{ id }}">{{ location }}</a>
+    </p>
+    <p>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="start_date" data-url="/parts/{{ id }}">{{ start_date }}</a> -
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="end_date" data-url="/parts/{{ id }}">{{ end_date }}</a>
+    </p>
+    <p>
+      <a href="#" class="editable" data-type="text" data-pk="{{ id }}" data-name="notes" data-url="/parts/{{ id }}">{{ notes }}</a>
+    </p>
   </li>
 </script>
 
