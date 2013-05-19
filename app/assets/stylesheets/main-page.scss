@@ -1,0 +1,46 @@
+/*
+Filename: main-page.css;
+Description: The homepage css for the pinpointcv.com design;
+ */
+
+	$pcv_blue: #1ba0d8;
+	$pcv_orange: #e78d0e;
+
+.main-page {
+	display: block;
+	margin: 4em auto;
+	background-color: #fff;
+	min-height: 20em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+
+	.resume-details {
+		display: inline-block !important;
+		vertical-align: top;
+		background-color: #dedede;
+		min-height: 30em;
+
+		.section-area {
+			margin: 2em auto;
+
+			.section-header {
+				background-color: $pcv_orange;
+				// color: #fff;
+
+				a {
+					color: #fff;
+				}
+
+			}
+		}
+	}
+
+	.resumes {
+		display: inline-block !important;
+		vertical-align: top;
+		background-color: #ccc;
+		margin-left: 0;
+		min-height: 10em;
+		width: 24em;
+	}
+}

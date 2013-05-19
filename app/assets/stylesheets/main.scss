@@ -1,0 +1,56 @@
+/*
+Filename: main.css;
+Description: The main file for the pinpointcv.com design;
+ */
+
+/*-----------------------------------------
+Begin: X Style;
+---------------------------------------- */
+
+/*-----------------------------------------
+End: X Style;
+---------------------------------------- */
+
+/*------------------------------------------*/
+
+/*-----------------------------------------
+Begin: General Style;
+---------------------------------------- */
+	/* Variables */
+	$pcv_blue: #1ba0d8;
+	$pcv_orange: #e78d0e;
+
+	$logo: 'img/logo.png';
+	$logo-full: 'img/logo-full.png';
+
+
+	body {
+		background-color: $pcv_blue;
+	}
+
+	a {
+		text-decoration: none;
+	}   
+
+	.livicon {
+		display: inline-block;
+		line-height: inherit;
+		vertical-align: middle;
+		height: 18px!important;
+	}
+
+	.logo-full {
+		width: 300px;
+		height: auto;
+		background-color: #fff;
+	}
+/*-----------------------------------------
+End: General Style;
+---------------------------------------- */
+@import "header";
+@import "footer";
+@import "home";
+@import "landing-page";
+@import "login";
+@import "register";
+@import "main-page";
