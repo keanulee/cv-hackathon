@@ -17,20 +17,143 @@ Description: The homepage css for the pinpointcv.com design;
 	.resume-details {
 		display: inline-block !important;
 		vertical-align: top;
-		background-color: #dedede;
+		background-color: #fff;
 		min-height: 30em;
+		// border: 1px solid #dedede;
 
 		.section-area {
 			margin: 2em auto;
+			width: 50em;
+			border-radius: none;
+			border: none !important;
 
 			.section-header {
 				background-color: $pcv_orange;
-				// color: #fff;
+				border-radius: none;
 
 				a {
 					color: #fff;
 				}
 
+			}
+
+			.section {
+				background-color: #ededed;
+				border: none !important;
+
+				.section-functionality {
+					width: 90%;
+					margin: 1em auto;
+					background-color: #fff;
+					padding: 0.5em;
+					min-height: 2em;
+					height: auto;
+					color: #777;
+
+					h4,
+					a {
+						display: inline-block;
+						vertical-align: middle;
+						height: 32px !important;
+						margin: 0;
+					}
+
+					a {
+						display: inline-block;
+						vertical-align: top;
+						margin-right: 1em;
+
+						&.last {
+							margin-right: 0;
+						}
+					}
+
+					h4 {
+						padding-left: 0.2em;
+						line-height: 32px;
+					}
+				}
+
+				.section-info-container {
+					width: 90%;
+					margin: 1em auto;
+
+					.section-info {
+
+						.info-area {
+							width: 90%;
+							margin: 1em auto;
+
+							.info-header {
+								background-color: $pcv_blue;
+
+
+								a {
+									color: #fff;
+								}
+							}
+
+							.info {
+								background-color: #ddd;
+
+								.info-functionality {
+									width: 90%;
+									margin: 1em auto;
+									background-color: #fff;
+									padding: 0.5em;
+									min-height: 2em;
+									height: auto;
+									color: #777;
+									
+									h4,
+									a {
+										display: inline-block;
+										vertical-align: middle;
+										height: 32px !important;
+										margin: 0;
+									}
+
+									h4 {
+										line-height: 32px;
+									}
+
+								}
+
+							.info-inner {
+
+								ul {
+									list-style-type: none;
+									margin-left: 0;
+
+								}
+
+								li {
+									margin: 0.5em auto;
+									background-color: #fff;
+									line-height: 30px;
+
+									span {
+
+										&.field {
+											padding: 0 0.5em;
+											color: #999;
+										}
+
+										&.data {
+
+										}
+									}
+
+								}
+
+							}
+
+							}
+						}
+					}
+				}
+
+				
 			}
 		}
 	}
@@ -38,9 +161,109 @@ Description: The homepage css for the pinpointcv.com design;
 	.resumes {
 		display: inline-block !important;
 		vertical-align: top;
-		background-color: #ccc;
-		margin-left: 0;
-		min-height: 10em;
-		width: 24em;
+		margin: 1em 0 0 0;
+		min-height: 100em;
+		width: 23em;
+
+		.box {
+			display: block;
+			background-color: #F9FADC;
+			min-height: 10em;
+			margin-top: 4.5em;
+			padding: 1em;
+			width: 21em !important;
+
+			.upper {
+				background-color: #fff;
+				padding: 0.2em 0.5em;
+
+				h3,
+				a {
+					display: inline-block;
+					vertical-align: middle;
+					height: 32px;
+					line-height: 32px;
+				}
+
+				h3 {
+					margin: 0;
+				}
+
+				a {
+					width: 32px;
+
+					span {
+						height: 32px !important;
+					}
+				}
+			}
+
+			.versions {
+				margin: 1.5em 0 0;
+				min-height: 10em;
+				display: block;
+				background-color: #fff;
+
+				ul {
+					list-style-type: none;
+					margin: 0;
+
+					li {
+						border-bottom: 1px solid #ddd;
+						padding: 0.5em 0.5em;
+						
+						a {
+							color: $pcv_blue;
+							display: inline-block;
+							vertical-align: middle;
+							height: 28px !important;
+							line-height: 28px;
+
+							&.livicons {
+								color: transparent;
+							}
+
+							span.livicon {
+								height: 28px !important;
+							}
+						}
+
+						a:hover,
+						a:focus {
+							color: $pcv_orange;
+						}
+
+						&.last {
+							border-bottom: none;
+						}
+
+					}
+				}
+			}
+
+			.export {
+				margin: 1.5em auto 0;
+				display: block;
+
+
+				a {
+					padding-bottom: 16px;
+
+					i,
+					span {
+						display: inline-block;
+						vertical-align: middle;
+						height: 18px !important;
+						line-height: 18px;
+					}
+
+					span {
+						font-size: 18px;
+						margin-left: 0.5em;
+					}
+				}
+			}
+
+		}
 	}
 }
