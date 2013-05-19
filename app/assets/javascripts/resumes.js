@@ -18,7 +18,10 @@ $(document).ready(function() {
 
         $('#section-create-' + data[i].id).editable({
           url: '/sections/',
-          title: 'Enter new section'
+          title: 'Enter new section',
+          success: function() {
+            location.reload();
+          }
         });
 
         for(j = 0; j < data[i].sections.length; ++j)
@@ -37,7 +40,10 @@ $(document).ready(function() {
           
           $('#part-create-' + section.id).editable({
             url: '/parts/',
-            title: 'Enter new part'
+            title: 'Enter new part',
+            success: function() {
+              location.reload();
+            }
           });
 
           for(k = 0; k < section.parts.length; ++k)
@@ -61,6 +67,19 @@ $(document).ready(function() {
       }
 
       $(".editable").editable();
+
+      $(".delete-resume").click(function() {
+        if (window.confirm("Are you sure?")) {
+          var data = $(this).attr('data');
+          $.ajax({
+            url: '/resumes/' + $(this).attr('data'),
+            type: 'DELETE',
+            success: function() {
+              $("#resume-"+ data ).fadeOut();
+            }
+          });
+        }
+      });
 
       $(".delete-section").click(function() {
         if (window.confirm("Are you sure?")) {
