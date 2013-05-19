@@ -4,25 +4,22 @@
         <div class="span12 main-page">          
           
           <div class="span8 resume-details">
-              <div class="accordion" id="accordion1">
+            <div class="accordion" id="accordion1">
 
-                <!-- I think this is where the shit goes -->
-                <div class="personal-info">
-                  
-                  <div class="first-name">
-                    fuck off
-                  </div>
-
-                  <div class="last-name">
-                    name
-                  </div>
-
-                  <div class="email">jonathan@hi.com</div>
-
+              <div class="personal-info">
+                <div class="first-name">
+                  <%= @contact_info.first_name %>
                 </div>
-                
-                <div class="accordion-group section-area" id="resumes-list">
+                <div class="last-name">
+                  <%= @contact_info.last_name %>
                 </div>
+                <div class="email">
+                  <%= @contact_info.email %>
+                </div>
+              </div>
+              
+              <div class="accordion-group section-area" id="resumes-list">
+              </div>
 
             </div>
           </div>

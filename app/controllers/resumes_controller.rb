@@ -4,6 +4,7 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
+    @contact_info = current_user.contact_info
     @resumes = Resume.all( :conditions => { :user_id => current_user.id }, :include => { :sections => :parts } )
     #puts YAML::dump(@jsonresumes)
 

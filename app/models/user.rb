@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     create_contact_info(
       :first_name => profile.first_name,
       :last_name  => profile.last_name,
-      :email      => profile.email_address,
+      :email      => email,
       :details    => profile.to_hash
     )
   end
@@ -34,4 +34,10 @@ class User < ActiveRecord::Base
 
     educations_section.add_educations profile_fields.educations.all
   end
+
+  def contact_info_with_auto_build
+    build_contact_info unless contact_info_without_auto_build
+    contact_info_without_auto_build
+  end
+  alias_method_chain :contact_info, :auto_build
 end
